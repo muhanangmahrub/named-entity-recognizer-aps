@@ -1,21 +1,32 @@
-import { Box, Text, Textarea } from "@chakra-ui/react";
-
 interface Props {
   onTextChange: (text: string) => void;
 }
 
 const TextField = ({ onTextChange }: Props) => {
   return (
-    <Box maxW="100%" as="fieldset" borderWidth="1px" p={4} borderRadius="md">
-      <Text as="legend" fontWeight="bold" mb={2}>
+    <fieldset
+      style={{
+        width: "100vw",
+        // border: "1px solid black",
+        padding: "10px",
+        borderRadius: "6px",
+      }}
+    >
+      <legend style={{ fontWeight: "bold", marginBottom: "8px" }}>
         Enter your text:
-      </Text>
-      <Textarea
+      </legend>
+      <textarea
         placeholder="Type your text here..."
-        size="lg"
+        style={{
+          width: "100%",
+          padding: "8px",
+          fontSize: "16px",
+          borderRadius: "4px",
+          border: "1px solid black",
+        }}
         onChange={(e) => onTextChange(e.target.value)}
       />
-    </Box>
+    </fieldset>
   );
 };
 

@@ -1,11 +1,4 @@
-import {
-  ChakraProvider,
-  Box,
-  VStack,
-  Button,
-  Container,
-  Flex,
-} from "@chakra-ui/react";
+import { ChakraProvider, Button } from "@chakra-ui/react";
 import { defaultSystem } from "@chakra-ui/react";
 import Header from "./components/Header";
 import TextField from "./components/TextField";
@@ -34,27 +27,24 @@ function App() {
   return (
     <ChakraProvider value={defaultSystem}>
       <Header />
-      <Container maxW="container.md" centerContent>
-        <Flex direction="column" w="100%" align="center" mt={8}>
-          <Box maxW="100%" pt="100px" px={4}>
-            <form onSubmit={handleSubmit}>
-              <VStack align={"stretch"}>
-                <ModelSelector model={model} setModel={setModel} />
-                <TextField onTextChange={setText} />
-                <Button
-                  type="submit"
-                  colorScheme="blue"
-                  width="full"
-                  color="blackAlpha.950"
-                >
-                  Process
-                </Button>
-              </VStack>
-            </form>
-            <EntityList entities={entities} />
-          </Box>
-        </Flex>
-      </Container>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "20px",
+          boxSizing: "border-box",
+        }}
+      >
+        <ModelSelector model={model} setModel={setModel} />
+        <TextField onTextChange={setText} />
+        <Button type="submit">Process</Button>
+        <EntityList entities={entities} />
+      </form>
     </ChakraProvider>
   );
 }
