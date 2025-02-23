@@ -1,29 +1,20 @@
-// import React from "react";
-import { Heading, Flex, Separator } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 
 const Header = () => {
   return (
-    <Flex
-      as="nav"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      padding="1rem"
-      bg="gray.400"
-      width="100%"
+    <Box
+      as="header"
       position="fixed"
-      top="0"
-      left="0"
-      right="0"
-      zIndex="0"
+      top={0}
+      width="100%"
+      bg="gray.100"
+      py={4}
+      px={6}
+      boxShadow="md"
+      zIndex={1000}
     >
-      <Flex align="center" as="nav" mr={5}>
-        <Heading as="h1" size="sm">
-          Named Entity App
-        </Heading>
-        <Separator />
-      </Flex>
-    </Flex>
+      <Heading size="lg">Named Entity App</Heading>
+    </Box>
   );
 };
 
